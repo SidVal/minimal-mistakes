@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    var content = document.getElementById('content');
+
+    function showFeed(data){
+        if(data.status == 'ok'){
+
+            var output = '<h1>'+data.feed.title+'</h1>';
+
+            for(var i=0;i<data.items.length;++i){
+
+                output += '<p><h2><a href="' +
+                data.items[i].link + '" >' +
+                data.items[i].title + '</h2></a></p>';
+
+            }
+
+
+            content.innerHTML = output;
+
+        }
+
+    }
+</script>
+<script type="text/javascript"
+        src="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.consultoria-sap.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss"></script>
