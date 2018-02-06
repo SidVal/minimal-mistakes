@@ -8,10 +8,10 @@
             var output = '<h1>'+data.feed.title+'</h1>';
 
             for(var i=0;i<data.items.length;++i){
-
+                var item = data.items[i];
                 output += '<p><h2><a href="' +
-                data.items[i].link + '" >' +
-                data.items[i].title + '</h2></a></p>';
+                output += '<h2><a href="' + item.link + '" >' + item.title + '</a></h2>';
+                output += '<p>'+item.description+'</p>';
 
             }
 
@@ -23,4 +23,4 @@
     }
 </script>
 <script type="text/javascript"
-        src="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.consultoria-sap.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss"></script>
+        src="https://api.rss2json.com/v1/api.json?callback=showFeed&rss_url=https%3A%2F%2Fwww.consultoria-sap.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss"></script>
