@@ -1,30 +1,34 @@
 <div id="content"></div>
+<div id="content"></div>
+
 <script type="text/javascript">
     var content = document.getElementById('content');
 
-    function showFeed(data){
-        if(data.status == 'ok'){
+    var xhr = new XMLHttpRequest();
 
-            var output = '<h1>'+data.feed.title+'</h1>';
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState==4 && xhr.status==200)
+        {
+            var data = JSON.parse(xhr.responseText);
+            if(data.status == 'ok'){
 
-            for(var i=0;i<data.items.length;++i){
+                var output = '<h1>'+data.feed.title+'</h1>';
 
-                output += '<p><h2><a href="' +
-                output += '<h2><a href="' + data.items[i].link + '" >' + data.items[i].title + '</a></h2>';
-                output += '<p>'+data.items[i].description+'</p>';
+                for(var i=0;i<data.items.length;++i){
+
+                    output += '<p><h2><a href="' +
+                    data.items[i].link + '" >' +
+                    data.items[i].title + '</h2></a></p>';
+
+                }
+
+
+                content.innerHTML = output;
 
             }
-
-
-            content.innerHTML = output;
-
         }
+    };
+    xhr.open('GET','https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss',true);
+    xhr.send();
 
-    }
 </script>
-<script type="text/javascript"
-        src="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.consultoria-sap.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss">
-showFeed();
-</script>
-
-
