@@ -9,6 +9,8 @@ Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your
 
 :sparkles: See what's new in the [CHANGELOG](CHANGELOG.md).
 
+<!--//
+
 [![Minimal Mistakes live preview][2]][1]
 
 [1]: https://mmistakes.github.io/minimal-mistakes/
@@ -243,3 +245,5 @@ Pure Liquid Jekyll Table of Contents is distributed under the terms of the [MIT 
 Minimal Mistakes incorporates [Lunr](http://lunrjs.com),
 Copyright (c) 2017 Oliver Nightingale.
 Lunr is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+//-->
